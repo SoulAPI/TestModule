@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'io.papermc.paperweight.userdev' version "2.0.0-beta.19"
+}
+
+group = 'com.unfamoussoul'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        url = 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    paperweight.foliaDevBundle("${folia_version}")
+    compileOnly("com.github.SoulAPI:SAPI:${sapi_version}")
+}
+
+processResources {
+    filteringCharset "UTF-8"
+}
+
+jar {
+    archiveFileName = "Test.jar"
+}
