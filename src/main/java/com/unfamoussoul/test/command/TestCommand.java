@@ -10,10 +10,6 @@ public class TestCommand extends DynamicCommand {
 
     public TestCommand() {
         super("test");
-        initialize();
-    }
-
-    private void initialize() {
         register(test());
     }
 
