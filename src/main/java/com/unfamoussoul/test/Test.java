@@ -28,10 +28,6 @@ public class Test extends SAPIModule {
         config = new Config(getConfigHandler("config.yml"));
         loadLocale(plugin.getDefaultLanguage(), "en_US", "ru_RU");
 
-        for (String l : getLocale().getTranslations().keySet()) {
-            getPlugin().getLogger().severe(l);
-        }
-
         initPersistentFields();
 
         addCommand(new TestCommand());
