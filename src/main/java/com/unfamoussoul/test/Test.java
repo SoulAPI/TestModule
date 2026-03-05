@@ -26,7 +26,7 @@ public class Test extends SAPIModule {
     @Override
     public void onEnable() {
         config = new Config(getConfigHandler("config.yml"));
-        loadLocale(plugin.getDefaultLanguage(), "en_US", "ru_RU");
+        loadLocale(getDefaultLanguage(), "en_US", "ru_RU");
 
         initPersistentFields();
 
@@ -38,7 +38,7 @@ public class Test extends SAPIModule {
 
     @Override
     public void onDisable() {
-        plugin.getLogger().warning("test+++");
+        getLogger().warning("test+++");
     }
 
     public void addPhrase(UUID playerId, String phrase) {

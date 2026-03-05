@@ -42,7 +42,7 @@ public class RemindCommand extends DynamicCommand {
                         componentBuilder.append(module.getLocale().message(player, "test.remind.line", Placeholder.parsed("0", phrase)));
                     }
 
-                    player.sendMessage(module.getLocale().message(player, "test.remind.headers", Placeholder.component("0", componentBuilder.build())));
+                    player.sendMessage(module.getLocale().message(player, "test.remind.header", Placeholder.component("0", componentBuilder.build())));
                     return 1;
                 });
     }

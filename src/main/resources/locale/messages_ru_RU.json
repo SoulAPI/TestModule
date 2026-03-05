@@ -1,7 +1,7 @@
 {
   "test.welcome": "<rainbow>Добро пожаловать на сервер Шизофрения, <0>",
   "test.remind.empty": "Я ничего не запомнил :(",
-  "test.remind.headers": "Я помню, что вы сказали: <0>",
+  "test.remind.header": "Я помню, что вы сказали: <0>",
   "test.remind.line": "\n - \"<0>\"",
   "test.remember.success": "Запомнил <0> символов!"
 }
