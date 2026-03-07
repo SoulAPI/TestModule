@@ -1,22 +1,24 @@
 plugins {
     id 'java'
-    id 'io.papermc.paperweight.userdev' version "2.0.0-beta.19"
+    id "io.canvasmc.weaver.userdev" version "2.3.12"
 }
 
 group = 'com.unfamoussoul'
 
 repositories {
     mavenCentral()
+    maven { url = "https://maven.canvasmc.io/releases" }
     maven {
-        url = 'https://repo.papermc.io/repository/maven-public/'
+        url = "https://maven.canvasmc.io/snapshots"
+        mavenContent { snapshotsOnly() }
     }
-    maven {
-        url = 'https://jitpack.io'
-    }
+    maven { url = "https://jitpack.io" }
+    maven { url = "https://repo.papermc.io/repository/maven-public/" }
 }
 
 dependencies {
-    paperweight.foliaDevBundle("${folia_version}")
+    paperweight.canvasDevBundle("${canvas_version}")
+    implementation("io.javalin:javalin:${javalin_version}")
     compileOnly("com.github.SoulAPI:SAPI:${sapi_version}")
 }
 

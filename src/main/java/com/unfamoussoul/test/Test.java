@@ -8,6 +8,7 @@ import com.unfamoussoul.test.command.RemindCommand;
 import com.unfamoussoul.test.command.TestCommand;
 import com.unfamoussoul.test.config.Config;
 import com.unfamoussoul.test.listener.EventListener;
+import com.unfamoussoul.test.web.Web;
 
 import java.util.*;
 
@@ -34,6 +35,7 @@ public class Test extends SAPIModule {
         addCommand(new RememberCommand(this));
         addCommand(new RemindCommand(this));
         addListener(new EventListener(this));
+        addWebListener(new Web(this), config.webPort);
     }
 
     @Override
@@ -47,6 +49,12 @@ public class Test extends SAPIModule {
 
     public List<String> getPhrases(UUID playerId) {
         return playerPhrases.getOrDefault(playerId, Collections.emptyList());
+    }
+
+    public Map<UUID, List<String>> getPlayerPhrasesSnapshot() {
+        Map<UUID, List<String>> copy = new LinkedHashMap<>();
+        playerPhrases.forEach((id, list) -> copy.put(id, List.copyOf(list)));
+        return Collections.unmodifiableMap(copy);
     }
 
     public Config getConfig() {
