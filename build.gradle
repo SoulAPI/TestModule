@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id "io.canvasmc.weaver.userdev" version "2.3.12"
+    id "io.canvasmc.weaver.userdev" version "2.4.5"
 }
 
 group = 'com.unfamoussoul'
@@ -23,7 +23,7 @@ dependencies {
 }
 
 processResources {
-    filteringCharset "UTF-8"
+    filteringCharset = "UTF-8"
 }
 
 jar {
