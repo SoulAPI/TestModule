@@ -6,7 +6,7 @@ web:
   threads:
     min: 2
     max: 10
-    queued: 100
+    queued: 8
     idle: 60
     evict: 120
 

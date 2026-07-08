@@ -3,7 +3,6 @@
   "test.remind.empty": "Я ничего не запомнил :(",
   "test.remind.header": "Я помню, что вы сказали: <0>",
   "test.remind.line": "\n - \"<0>\"",
-  "test.remember.success": "Запомнил <0> символов!"
   "test.remember.success": "Запомнил <0> символов!",
   "test.command.textapi_not_loaded": "TextAPI не загружен!",
   "test.database.error": "Ошибка SQL: <0>"

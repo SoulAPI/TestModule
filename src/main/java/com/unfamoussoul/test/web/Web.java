@@ -43,7 +43,9 @@ public class Web extends WebListener {
         });
 
         getApp().unsafe.routes.apiBuilder(() -> {
-            path("/server", () -> get("online", serverRoute::getOnline));
+            path("/server", () ->
+                    get("online", serverRoute::getOnline)
+            );
             path("/reminders", () -> {
                 get("", remindersRoute::getAll);
                 get("{nickname}", remindersRoute::getByNickname);

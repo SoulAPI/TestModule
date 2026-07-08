@@ -1,9 +1,8 @@
 {
   "test.welcome": "<rainbow><0>, welcome to the CUM zone. Only CUM inside anime girls",
   "test.remind.empty": "I can't remember a thing :(",
-  "test.remind.header": "I remembered you said this: <0>",
+  "test.remind.header": "I remember! You said this: <0>",
   "test.remind.line": "\n - \"<0>\"",
-  "test.remember.success": "Remembered <0> symbols!"
   "test.remember.success": "Remembered <0> symbols!",
   "test.command.textapi_not_loaded": "TextAPI is not loaded!",
   "test.database.error": "SQL error: <0>"
