@@ -30,12 +30,12 @@ public class Test extends SAPIModule {
         loadLocale(getDefaultLanguage(), "en_US", "ru_RU");
 
         initPersistentFields();
-
-        addCommand(new TestCommand());
+        addCommand(new TestCommand(this));
         addCommand(new RememberCommand(this));
         addCommand(new RemindCommand(this));
         addListener(new EventListener(this));
         addWebListener(new Web(this), config.webPort);
+        getLogger().warning("test---");
     }
 
     @Override
