@@ -9,3 +9,6 @@ web:
     queued: 100
     idle: 60
     evict: 120
+
+database:
+  jdbc: "jdbc:sqlite:data.db"

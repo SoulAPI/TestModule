@@ -2,7 +2,6 @@ package com.unfamoussoul.test.web.route;
 
 import com.unfamoussoul.test.Test;
 import io.javalin.http.Context;
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,6 +26,7 @@ public class RemindersRoute {
         payload.put("count", phrases.size());
         payload.put("data", phrases);
 
+        module.getDatabaseHandler().addLog("/reminders", ctx.ip());
         ctx.json(payload);
     }
 
@@ -41,11 +41,12 @@ public class RemindersRoute {
         payload.put("count", phrases.size());
         payload.put("data", phrases);
 
+        module.getDatabaseHandler().addLog("/reminders/" + nickname, ctx.ip());
         ctx.json(payload);
     }
 
     private @NotNull UUID resolveUuid(String nickname) {
-        OfflinePlayer player = Bukkit.getOfflinePlayer(nickname);
+        OfflinePlayer player = module.getPlugin().getServer().getOfflinePlayer(nickname);
         return player.getUniqueId();
     }
 }

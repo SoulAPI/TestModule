@@ -1,12 +1,14 @@
 package com.unfamoussoul.test;
 
 import com.unfamoussoul.sapi.SAPI;
+import com.unfamoussoul.sapi.api.database.DatabaseConfig;
 import com.unfamoussoul.sapi.api.serialize.Persistent;
 import com.unfamoussoul.sapi.module.SAPIModule;
 import com.unfamoussoul.test.command.RememberCommand;
 import com.unfamoussoul.test.command.RemindCommand;
 import com.unfamoussoul.test.command.TestCommand;
 import com.unfamoussoul.test.config.Config;
+import com.unfamoussoul.test.database.TestDatabaseHandler;
 import com.unfamoussoul.test.listener.EventListener;
 import com.unfamoussoul.test.web.Web;
 
@@ -16,6 +18,7 @@ import java.util.*;
 public class Test extends SAPIModule {
 
     private Config config;
+    private TestDatabaseHandler databaseHandler;
 
     @Persistent(value = "player_phrases")
     private final Map<UUID, List<String>> playerPhrases = new HashMap<>();
@@ -35,12 +38,19 @@ public class Test extends SAPIModule {
         addCommand(new RemindCommand(this));
         addListener(new EventListener(this));
         addWebListener(new Web(this), config.webPort);
+        DatabaseConfig databaseConfig = DatabaseConfig.forSqlite(config.databaseJDBC);
+        databaseHandler = new TestDatabaseHandler(databaseConfig);
+        addDatabaseHandler(databaseHandler);
         getLogger().warning("test---");
     }
 
     @Override
     public void onDisable() {
         getLogger().warning("test+++");
+    }
+
+    public TestDatabaseHandler getDatabaseHandler() {
+        return databaseHandler;
     }
 
     public void addPhrase(UUID playerId, String phrase) {

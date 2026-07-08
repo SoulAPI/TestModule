@@ -6,4 +6,5 @@
   "test.remember.success": "Remembered <0> symbols!"
   "test.remember.success": "Remembered <0> symbols!",
   "test.command.textapi_not_loaded": "TextAPI is not loaded!",
+  "test.database.error": "SQL error: <0>"
 }

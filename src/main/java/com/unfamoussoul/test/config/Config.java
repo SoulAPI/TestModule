@@ -16,6 +16,8 @@ public class Config {
     public final int webThreadsIdle;
     public final int webThreadsEvict;
 
+    public final String databaseJDBC;
+
     public Config(@NotNull ConfigHandler configHandler) {
         FileConfiguration cfg = configHandler.getConfig();
 
@@ -28,5 +30,7 @@ public class Config {
         webThreadsQueued = cfg.getInt("web.threads.queued");
         webThreadsIdle = cfg.getInt("web.threads.idle");
         webThreadsEvict = cfg.getInt("web.threads.evict");
+
+        databaseJDBC = cfg.getString("database.jdbc");
     }
 }

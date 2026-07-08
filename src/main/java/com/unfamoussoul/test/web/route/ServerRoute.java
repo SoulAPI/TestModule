@@ -29,6 +29,7 @@ public class ServerRoute {
         payload.put("max", module.getPlugin().getServer().getMaxPlayers());
         payload.put("names", names);
 
+        module.getDatabaseHandler().addLog("/server/online", ctx.ip());
         ctx.json(payload);
     }
 }
