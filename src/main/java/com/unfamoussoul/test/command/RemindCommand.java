@@ -6,8 +6,6 @@ import com.unfamoussoul.test.Test;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.ComponentBuilder;
-import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.entity.Player;
 
@@ -37,12 +35,19 @@ public class RemindCommand extends DynamicCommand {
                         return 1;
                     }
 
-                    ComponentBuilder<TextComponent, TextComponent.Builder> componentBuilder = Component.text();
+                    Component text = Component.empty();
                     for (String phrase : phrases) {
-                        componentBuilder.append(module.getLocale().message(player, "test.remind.line", Placeholder.parsed("0", phrase)));
+                        Component component = module.getLocale().message(player, "test.remind.line", Placeholder.parsed("0", phrase));
+                        text = text.append(component);
                     }
 
-                    player.sendMessage(module.getLocale().message(player, "test.remind.header", Placeholder.component("0", componentBuilder.build())));
+                    player.sendMessage(
+                            module.getLocale().message(
+                                    player,
+                                    "test.remind.header",
+                                    Placeholder.component("0", text)
+                            )
+                    );
                     return 1;
                 });
     }
